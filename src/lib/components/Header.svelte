@@ -48,8 +48,11 @@
 
     const calculateHeights = () => {
         pageHeight = document.documentElement.scrollHeight;
-        hasScrollRoom = (pageHeight - innerHeight.current) > titleHeight;
+        pageHeightVh = (pageHeight / innerHeight.current) * 100;
     };
+
+
+
 
 </script>
 
@@ -70,7 +73,7 @@
     <!-- only create fixed navigation when it is not base page and when the page has more height than viewport -->
     <nav 
         class="navigation-bar"
-        class:fixed={scrollY.current >= titleHeight && !base && hasScrollRoom} 
+        class:fixed={scrollY.current >= titleHeight && !base && pageHeightVh >= 120} 
     >
         {#each navButtons as button, index}
             <a 
