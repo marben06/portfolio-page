@@ -51,9 +51,6 @@
         pageHeightVh = (pageHeight / innerHeight.current) * 100;
     };
 
-
-
-
 </script>
 
 <header bind:this={elementToObserve}>
@@ -109,7 +106,7 @@
         align-items: center;
         margin: auto;
         margin-bottom: 4rem;
-        z-index: 1000;
+        z-index: 500;
         height: 4rem;
         justify-content: space-evenly;
     }

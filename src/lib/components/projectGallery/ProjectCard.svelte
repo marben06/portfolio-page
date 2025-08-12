@@ -66,7 +66,6 @@
         transition: all 1s ease-in-out;
         border-radius: 3rem;
         z-index: 10;
-        
     }
 
     .loaded {

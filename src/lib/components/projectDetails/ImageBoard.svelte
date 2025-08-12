@@ -111,7 +111,7 @@
       width: 100vw;
       height: 100vh;
       background-color: rgba(37, 37, 38, 0.8);
-      z-index: 100;
+      z-index: 1000;
       overflow-y: auto;
       display: block;
       padding: 2rem 0;
