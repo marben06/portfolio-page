@@ -37,15 +37,16 @@
 <svelte:window onkeydown={closeResizedImageOnEsc} />
 
 <div class="carousel-container">
-<div class="selected-poster-container">
-    <img 
-        src={posters[selectedIndex][0]} 
-        alt={posters[selectedIndex][1]}
-        aria-label="Selected poster"
-        class="selected-poster"
-        onclick={() => handleImageClick(posters[selectedIndex][0])}
-    >
-</div>
+
+    <div class="selected-poster-container">
+        <img 
+            src={posters[selectedIndex][0]} 
+            alt={posters[selectedIndex][1]}
+            aria-label="Selected poster"
+            class="selected-poster"
+            onclick={() => handleImageClick(posters[selectedIndex][0])}
+        >
+    </div>
     
 <div 
     class="carousel"
@@ -56,14 +57,13 @@
     {#each posters as poster, index}
         <div 
             class="image-container"
-             tabindex="0"
+            tabindex="0"
             role="listitem"
             aria-label={`Poster ${index + 1}${selectedIndex === index ? ' (selected)' : ''}`}
             class:active={selectedIndex === index} 
             onclick={() => handlePosterSelect(index)}
-            onKeydown={() => handlePosterSelect(index)}
             onkeydown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') handlePosterSelect(index);
+                if (e.key === 'Enter' || e.key === ' ') handlePosterSelect(index);
             }}     
         >
             <img 
@@ -72,7 +72,7 @@
                 alt={poster[1]}
                 transition:fade={{duration: 2000}}
             >
-        </div>
+</div>
     {/each}
     {/if}
     </div>

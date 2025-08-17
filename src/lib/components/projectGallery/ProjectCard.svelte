@@ -1,12 +1,28 @@
 <script>
     import { fly } from "svelte/transition";
+
     let { title, image, slug } = $props();
 
-    let imgLoaded = $state(false);
-    let animateTitle = $state(false);
- 
-</script>
+    // testing enhanced:image atm, if kept path will be adjustet directly in source json
+    const imageModules = import.meta.glob('../../assets/projects-preview/*.{webp,jpg,png}', { eager: true, query: { enhanced: true } });
+     // Extract the filename from the image path
+    const filename = image.split('/').pop();
+    const relativeImagePath = `../../assets/projects-preview/${filename}`;
+    const mod = imageModules[relativeImagePath];
 
+    if (!mod) {
+        console.error(
+        `[ProjectCard] Missing image module for: ${relativeImagePath}.` +
+        ` Available keys: ${Object.keys(imageModules).join(', ')}`
+        );
+    }
+
+  const projectImage = mod?.default;
+    
+    let animateTitle = $state(false);
+    let imgLoaded = $derived(projectImage ? true : false)
+
+</script>
 
 <div 
     class="project-card"
@@ -20,7 +36,7 @@
             onpointerenter={() => (animateTitle = true)}   
             onpointerleave={() => (animateTitle = false)}
         >        
-            {#if imgLoaded && animateTitle}
+            {#if animateTitle && (imgLoaded || !mod)}
                 <h2 
                     class="project-title"
                     transition:fly={{ y: 100, duration: 700 }}
@@ -28,16 +44,22 @@
                 </h2>
             {/if}
         </a>
-    {#if imgLoaded}
-        <div class="shadow"></div>
-    {/if}
-    <img 
-         src={image} 
-         alt={title} 
-         onload={() => (imgLoaded = true)}
-         class:loaded={imgLoaded}
-    />
+        <div class="shadow">
+            {#if projectImage}
+                <enhanced:img 
+                    src={projectImage} 
+                    alt={title} 
+                    onloadeddata={() => (imgLoaded = true)}
+                    class:loaded={imgLoaded}
+                />
+            {:else}
+                <div class="image-error"><span>Bild konnte nicht geladen werden.</span></div>
+            {/if}
+            
+
+    </div>
 </div>
+
 
 
 <style>
@@ -62,10 +84,10 @@
         width: 100%;
         height: 100%;
         position: absolute;
-        opacity: 0;
         transition: all 1s ease-in-out;
         border-radius: 3rem;
         z-index: 10;
+        opacity: 0;
     }
 
     .loaded {
@@ -101,6 +123,17 @@
 
      .project-title:focus {
          opacity: 1;
+    }
+
+    .image-error {
+        height: 100%;
+        width: 100%;
+        background-color: var(--accent);
+        text-align: center;
+    }
+
+    .image-error span {
+        font-size: 0.8rem;
     }
 
 
