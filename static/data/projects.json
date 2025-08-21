@@ -165,28 +165,6 @@
                 "stack": ["Adobe InDesign", "Adobe Illustrator", "Excel"]
             }
         },
-        {
-            "slug": "myth-economy",
-            "name": "Mythos Ökonomie",  
-            "previewImage": "/images/projects-preview/prev_mythos.webp",
-            "article": {
-                "title": "Mythos Ökonomie",
-                "content": "<p>Wirtschaftswachstum, freier Markt, Globalisierung und soziale Ungleichheit: Wie lassen sich sozioökonomische Prozesse deuten und hinterfragen?</p><p>»Mythos Ökonomie« bietet ein Bildungsangebot über das bestehende Wirtschaftssystem und dessen soziale Auswirkungen. Vermeintlich allgemeingültige Perspektiven, Denkmuster und »Alltagsreligionen« werden infrage gestellt.</p>"
-            },
-            "components": ["article", "videoGallery", "imgLeftTextRight", "posterGallery", "additionalArticle", "imageBoard", "techStack"],
-            "data": {
-                "videos": [["Der Weg in die Alternativlosigkeit", "/videos/alternativlos_1.mp4"], ["Der Weg in die Alternativlosigkeit - Teil 2", "/videos/alternativlos_2.mp4"], ["Der Weg in die Alternativlosigkeit - Teil 3", "/videos/alternativlos_3.mp4"], ["Freihandel", "/videos/freihandel.mp4"], ["Wachstum und Wohlstand", "/videos/wachstum.mp4"]],
-                "imgLeftTextRight": {
-                    "img": "/images/projects/Martini_Manipulation_oder_Information.png",   
-                    "text": "<h3 class='sub-title'>Buch: Manipulation oder Information? 2017 | ISBN: 978-3-89965-757-9</h3><p>»Eine fundierte, hintergrundgestützte öffentliche Meinungsbildung scheint jedoch nachgerade unmöglich, weil Themen und Inhalte oft verkürzt und häufig ohne größeren Kontext dargestellt werden.</p><p>Als Ausweg verfolgt Martinis Untersuchung einen innovativen gestalterischen Ansatz: Wie ließe sich ein visuelles Angebot zur Wissensvermittlung über das bestehende Wirtschaftssystem und dessen soziale Auswirkungen schaffen, sodass offene und komplexe Diskurse ermöglicht werden?«</p><p><a href='https://www.vsa-verlag.de/nc/buecher/detail/artikel/manipulation-oder-information/' target='_blank' class='external-link'>Zum Buch</a></p>",
-                    "altText": "Buchcover mit Infografik"
-                },
-                "posterUrls": [["/images/projects/1_poster_vermoegen_brd_large.jpg", "Plakat welches die Mengenverteilung des Vermögens in Deutschland zeigt, den obersten 10% gehört ein großer Anteil."], ["/images/projects/2_poster_vermoegen_weltweit_large.jpg"], ["/images/projects/3_poster_vermoegen_vergleich_large.jpg"],[ "/images/projects/5_poster_griechenland_kredite.jpg"]],
-                "additionalArticle": "Ziel des Projekts war das Schaffen eines demokratischen Raums, der Dialoge und Diskurse ermöglicht und die RezipientInnen so bei der eigenen Urteilsbildung und Positionierung unterstützt.",
-                "imageUrls": [["/images/projects/bierdeckel_uebersicht.jpg", "Bierdeckel mit Infografiken"], ["/images/projects/diskurs_bierdeckel_1.jpg", "Über Politik diskutierende Menschen"], ["/images/projects/diskurs_poster.jpg", "Menschen stehen vor Plakaten mit Infografiken"], ["/images/projects/serviette_klug.jpg", "Serviette mit Infografiken"]],
-                "stack": ["Adobe InDesign", "Adobe After Effects", "Adobe Illustrator", "Excel"]
-            }
-        },
 
         {
             "slug": "terre-des-femmes",
@@ -199,6 +177,4 @@
             }
             
         }
-
-
     ]
