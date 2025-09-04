@@ -26,12 +26,20 @@
                 "title": "1kg: Costs of Consumption",
                 "content": "<p>Interaktive Informationsvisualisierung zum Thema Fleischproduktion und -konsum und den Auswirkungen auf Ressourcenverbrauch, Nahrungsmittelverfügbarkeit und Umwelt.</p><a href='https://www.informationisbeautifulawards.com/showcase/6896-1kg-the-costs-of-consumption' target='blank'><img class='award-label' style='width: 120px;' src='/images/projects/iibawards.png' alt='Information is Beautiful 2024 Longlist label'/></a>"
             },
-            "components": ["heroImage", "article", "projectUrls", "techStack"],
+            "components": ["article", "projectUrls", "demoVideo", "imageBoard", "techStack"],
             "data": {
+                "demoVideo": "/videos/meat.mov",
                 "projectUrls": [
                     ["Links", ["https://meat-consumption-infographic.onrender.com/", "Zur App"], ["https://github.com/benmar2406/meat_consumption_infographic", "Github"]]
                 ],
                 "github": true,
+                "imageUrls": [
+                    ["/images/projects/meat_1.jpg", "Infografik: Entwicklung Fleischkonsum"], 
+                    ["/images/projects/meat_2.jpg", "Infografik: Entwicklung Fleischkonsum"], 
+                    ["/images/projects/meat_3.jpg", "Infografik: Entwicklung Fleischkonsum"], 
+                    ["/images/projects/meat_4.jpg", "Infografik: Entwicklung Fleischkonsum"], 
+                    ["/images/projects/meat_5.jpg", "Infografik: Entwicklung Fleischkonsum"]
+                ],
                 "stack": ["React", "Framer Motion", "Scrollama", "D3", "Python", "pandas", "geopandas", "Mapbox Studio", "Mapbox GL JS"]
             }
         },
@@ -43,13 +51,14 @@
                 "title": "Interaktive Karten",
                 "content": "<p>Diverse interaktive Karten zu verschiedenen Themen</p>"
             },
-            "components": ["article", "projectUrls", "techStack"],
+            "components": ["article", "projectUrls", "videoGallery", "techStack"],
             "data": {
                 "projectUrls": [
                     ["Mieten in Deutschland", ["https://benediktmartini.de/mieten", "Zur Karte"], ["https://github.com/benmar2406/rent-in-germany", "Github"]],
                     ["Bienen (Skizze, in Progress)", ["https://benediktmartini.de/bienen", "Zur Karte"], ["https://github.com/benmar2406/developement-biodiversity", "Github"]]
                 ],
                 "github": true,
+                "videos": [["Demo - Website: Mieten", "/videos/mieten.mov"], ["Demo - Website: Bienen", "/videos/bienen.mov"]],
                 "stack": ["Svelte", "Mapbox Studio", "Mapbox GL JS", "D3", "Python", "pandas", "geopandas"]
             }
         },

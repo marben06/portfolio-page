@@ -1,7 +1,8 @@
 	<script>
 		import ProjectArticle from "$lib/components/projectDetails/ProjectArticle.svelte";
-		import TitleImage from "$lib/components/projectDetails/HeroImage.svelte";
+		import TitleImage from "$lib/components/projectDetails/DemoVideo.svelte";
 		import VideoPlayer from "$lib/components/projectDetails/VideoPlayer.svelte";
+		import DemoVideo from "$lib/components/projectDetails/DemoVideo.svelte";
 		import ImageAndtext from "$lib/components/projectDetails/ImageAndtext.svelte";
 		import PosterGallery from "$lib/components/projectDetails/posterGallery.svelte";
 		import AdditionalProjectArticle from "$lib/components/projectDetails/AdditionalProjectArticle.svelte";
@@ -28,6 +29,11 @@
 					urlTitle={"Test"}
 					urls={loadedProject.data.projectUrls}
 					github={loadedProject.data.github}
+				/>
+			{/if}
+			{#if comp === 'demoVideo'}
+				<DemoVideo 
+					video={loadedProject.data.demoVideo} 
 				/>
 			{/if}
 			{#if comp === 'videoGallery'}
