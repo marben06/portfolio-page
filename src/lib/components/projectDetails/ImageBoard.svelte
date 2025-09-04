@@ -90,11 +90,11 @@
     border-radius: 0.5rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    cursor: pointer;
+    cursor: zoom-in;
   }
 
   img:hover {
-    opacity: 0.7,
+    opacity: 0.7;
   }
 
   @media screen and (min-width: 600px) {

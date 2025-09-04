@@ -26,7 +26,7 @@
                 "title": "1kg: Costs of Consumption",
                 "content": "<p>Interaktive Informationsvisualisierung zum Thema Fleischproduktion und -konsum und den Auswirkungen auf Ressourcenverbrauch, Nahrungsmittelverfügbarkeit und Umwelt.</p><a href='https://www.informationisbeautifulawards.com/showcase/6896-1kg-the-costs-of-consumption' target='blank'><img class='award-label' style='width: 120px;' src='/images/projects/iibawards.png' alt='Information is Beautiful 2024 Longlist label'/></a>"
             },
-            "components": ["article", "projectUrls", "techStack"],
+            "components": ["heroImage", "article", "projectUrls", "techStack"],
             "data": {
                 "projectUrls": [
                     ["Links", ["https://meat-consumption-infographic.onrender.com/", "Zur App"], ["https://github.com/benmar2406/meat_consumption_infographic", "Github"]]

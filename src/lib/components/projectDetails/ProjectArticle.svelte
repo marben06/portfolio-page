@@ -25,8 +25,7 @@ let renderElements = $state(false);
     }
 
     .project-description {
-        margin: 4rem auto;
-        margin-bottom: 1rem;
+        margin: 0.5rem auto;
         max-width: 750px;
     }
     

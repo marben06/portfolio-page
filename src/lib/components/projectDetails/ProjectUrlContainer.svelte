@@ -19,7 +19,7 @@
 
 <style>
     .url-section {
-        margin: 4rem auto;
+        margin: 1rem auto;
         max-width: 800px;
     }
 

@@ -113,7 +113,7 @@
         width: 400px;
         border-radius: 3rem;
         margin: auto;
-        cursor: pointer;
+        cursor: zoom-in;
     }
 
     .selected-poster{

@@ -1,5 +1,6 @@
 	<script>
 		import ProjectArticle from "$lib/components/projectDetails/ProjectArticle.svelte";
+		import TitleImage from "$lib/components/projectDetails/HeroImage.svelte";
 		import VideoPlayer from "$lib/components/projectDetails/VideoPlayer.svelte";
 		import ImageAndtext from "$lib/components/projectDetails/ImageAndtext.svelte";
 		import PosterGallery from "$lib/components/projectDetails/posterGallery.svelte";
@@ -15,6 +16,7 @@
 
 	{#if loadedProject}	
 		{#each loadedProject.components as comp}
+
 			{#if comp === 'article'} 
 				<ProjectArticle 
 					title={loadedProject.article.title} 

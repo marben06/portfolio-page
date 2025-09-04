@@ -70,7 +70,7 @@
     <!-- only create fixed navigation when it is not base page and when the page has more height than viewport -->
     <nav 
         class="navigation-bar"
-        class:fixed={scrollY.current >= titleHeight && !base && pageHeightVh >= 120} 
+        class:fixed={scrollY.current >= titleHeight && !base && pageHeightVh >= 140} 
     >
         {#each navButtons as button, index}
             <a 
@@ -122,7 +122,7 @@
 
     .nav-link {          
         margin: 0.1rem;
-        padding: 10px;
+        padding: 0.7rem 1rem;
         border: 3px solid var(--white);
         width:fit-content;
         transition: all 0.3s;
@@ -133,7 +133,7 @@
         color: var(--accent)
     }
 
-      @media screen and (min-width: 600px) {
+    @media screen and (min-width: 600px) {
         .navigation-bar {
             min-width: 550px;
             width: 100%;
@@ -142,8 +142,6 @@
         .title-container {
             min-height: 5rem;
         }
-
-  
     }
 
 </style>
