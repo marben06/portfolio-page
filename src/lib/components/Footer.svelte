@@ -1,5 +1,10 @@
+<script>
+    const date = new Date();
+    let year = date.getFullYear();
+</script>
+
 <footer id="imprint-container">
-    <a target="_blank"  href="/imprint">Impressum</a>
+    <a target="_blank"  href="/imprint">Impressum ({year})</a>
 </footer>
 
 <style>
@@ -9,14 +14,14 @@
         display: fley;
         justify-content: center;
         align-items: center;
-        font-size: 0.8rem;
     }
 
      #imprint-container a {
         text-align: center;
         display: block;
-        font-family: 'Mono Space';
         font-style: 'normal';
         font-weight: 400;
+        font-size: 0.7rem;
+
      }
 </style>
