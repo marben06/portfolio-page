@@ -55,7 +55,8 @@
             "data": {
                 "projectUrls": [
                     ["Mieten in Deutschland", ["https://benediktmartini.de/mieten", "Zur Karte"], ["https://github.com/benmar2406/rent-in-germany", "Github"]],
-                    ["Bienen (Skizze, in Progress)", ["https://benediktmartini.de/bienen", "Zur Karte"], ["https://github.com/benmar2406/developement-biodiversity", "Github"]]
+                    ["Bienen (Skizze, in Progress)", ["https://benediktmartini.de/bienen", "Zur Karte"], ["https://github.com/benmar2406/developement-biodiversity", "Github"]],
+                    ["1kg - Costs Of Consumption", ["https://meat-consumption-infographic.onrender.com/", "Zur Karte"], ["https://github.com/benmar2406/meat_consumption_infographic", "Github"]]
                 ],
                 "github": true,
                 "videos": [["Demo - Website: Mieten", "/videos/mieten.mov"], ["Demo - Website: Bienen", "/videos/bienen.mov"]],
