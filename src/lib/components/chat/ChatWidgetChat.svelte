@@ -1,10 +1,25 @@
 <script>
     import { marked } from 'marked';
     import { tick } from 'svelte';
+    import { onMount } from 'svelte'
     let { toggleChat } = $props();
     let messages = $state([]);
     let input = $state('');
+    let chatInput;
     let loading = $state(false);
+    let loadingTooLong = $state(false);
+
+    onMount(() => { 
+        chatInput.focus();
+
+        //if a response takes too long another loading message should be displayed
+        const timeout = setTimeout(() => {
+            loadingTooLong = true;
+        }, 6000); 
+
+        return () => clearTimeout(timeout); 
+    
+    })
 
     const scrollToLastMessage = () => {
         const elements = document.querySelectorAll('.message');
@@ -21,9 +36,9 @@
         input = '';
 
         const res = await fetch('https://portfolio-page-chat-api.onrender.com/portfolio-chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: messages.at(-1).text })
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: messages.at(-1).text })
         });
 
         const data = await res.json();
@@ -43,11 +58,22 @@
         </div>
     {/each}
 
-        {#if loading}<p>...</p>{/if}
-    </div>
+    {#if loading}
+        <p class="loading-indicator">Laden...</p>
+        {#if loadingTooLong}
+            <p class="loading-indicator">Mein kostenfreier Render Server schläft noch...</p>
+            <p class="loading-indicator">Ich brauche maximal eine Minute um aufzuwachen...</p>
+            <p class="loading-indicator">Ich bitte um etwas Geduld...</p>
+        {/if}
+    {/if}
+</div>
     <form onsubmit={sendMessage}>
         <label for="question">Stelle deine Frage zu den Projekten:</label>
-        <input id="question" name="question" bind:value={input} />
+        <input 
+            bind:this={chatInput} 
+            id="question" 
+            name="question" 
+            bind:value={input} />
         <button type="submit">Senden</button>
     </form>
 </div>
@@ -64,6 +90,7 @@
         display: flex;
         flex-direction: column;
         width: 90%;
+        max-width: 800px;
         margin: auto;
 
     }
@@ -78,7 +105,7 @@
         text-align: center;
         padding: 0;
         position: absolute;
-        right: 10px;
+        left: 10px;
         top: 10px;
         transition: all 0.1s;
     }
@@ -104,6 +131,7 @@
         align-items: center;
         justify-content: space-evenly;
         gap: 1rem;
+        margin: 1.8rem;
     }
 
     form label {
@@ -113,14 +141,28 @@
     form input {
         display: block;
         width: 95%;
+        max-width: 600px;
         background-color: var(--white);
         height: 2rem;
         border-radius: 15px;
         z-index: 50;
+        border: none;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
+        padding: 0.4rem;
+        font-family: 'Mono Space';
+        font-weight: 700;
+    }
+
+    form input:focus {
+        outline: none;
+        box-shadow: none;
     }
 
     button {
         text-align: center;
+        margin-top: 0.7rem;
     }
 
     .messages {
@@ -160,12 +202,20 @@
     .chat-urls {
         color: var(--background)
     }
+
     .chat-urls:visited {
         color: var(--background)
     }
 
     .chat-urls:active {
         color: var(--background)
+    }
+
+    .loading-indicator {
+        color: var(--background);
+        align-self: flex-end;
+        padding: 0.5rem;
+        margin: 0.5rem;
     }
 
 </style>

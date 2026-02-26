@@ -9,8 +9,14 @@
 <style>
     button {
         position: fixed;
-        right: 10px;
+        right: 20px;
         bottom: 10px;
         z-index: 900;
+    }
+
+    @media screen and (min-width: 600px) {
+        button {
+            right: 55px;
+        }
     }
 </style>
