@@ -1,7 +1,12 @@
 <script>
     import { marked } from 'marked';
     import { tick } from 'svelte';
-    import { onMount } from 'svelte'
+    import { onMount } from 'svelte';
+
+    // server setup
+    const apiKey = import.meta.env.VITE_API_KEY;
+    const baseUrl = import.meta.env.DEV ? import.meta.env.VITE_SERVER_URL_DEV : import.meta.env.VITE_SERVER_URL;
+
     let { toggleChat } = $props();
     let messages = $state([]);
     let input = $state('');
@@ -17,7 +22,7 @@
             loadingTooLong = true;
         }, 6000); 
 
-        return () => clearTimeout(timeout); 
+        return () => clearTimeout(timeout);
     
     })
 
@@ -35,9 +40,12 @@
         loading = true;
         input = '';
 
-        const res = await fetch('https://portfolio-page-chat-api.onrender.com/portfolio-chat', {
+        const res = await fetch(`${baseUrl}portfolio-chat`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                "x-api-key": apiKey
+            },
             body: JSON.stringify({ message: messages.at(-1).text })
         });
 
