@@ -20,7 +20,7 @@
         //if a response takes too long another loading message should be displayed
         const timeout = setTimeout(() => {
             loadingTooLong = true;
-        }, 6000); 
+        }, 10000); 
 
         return () => clearTimeout(timeout);
     
