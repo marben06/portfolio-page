@@ -3,7 +3,6 @@
     import { tick } from 'svelte';
     import { onMount } from 'svelte';
 
-    // server setup
     const apiKey = import.meta.env.VITE_API_KEY;
     const baseUrl = import.meta.env.DEV ? import.meta.env.VITE_SERVER_URL_DEV : import.meta.env.VITE_SERVER_URL;
 
@@ -32,28 +31,45 @@
         last?.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
 
-    const sendMessage = async () => {
+    const sendMessage = async (event) => {
+        event.preventDefault();
         if (!input.trim()) return;
         messages = [...messages, { role: 'user', text: input }];
         await tick();
         scrollToLastMessage();
         loading = true;
+        loadingTooLong = false;
+        const userText = input;
         input = '';
 
-        const res = await fetch(`${baseUrl}portfolio-chat`, {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json',
-                "x-api-key": apiKey
-            },
-            body: JSON.stringify({ message: messages.at(-1).text })
-        });
+        try {
+            const res = await fetch(`${baseUrl}portfolio-chat`, {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'x-api-key': apiKey
+                },
+                body: JSON.stringify({ message: userText })
+            });
 
-        const data = await res.json();
-        messages = [...messages, { role: 'assistant', text: data.reply }];
-        await tick();
-        scrollToLastMessage();
-        loading = false;
+            if (!res.ok) {
+                const fallback = res.status === 429
+                    ? 'Zu viele Anfragen, bitte kurz warten.'
+                    : 'Da ist etwas schiefgelaufen. Bitte versuch es später erneut.';
+                messages = [...messages, { role: 'assistant', text: fallback }];
+                return;
+            }
+
+            const data = await res.json();
+            messages = [...messages, { role: 'assistant', text: data.reply }];
+        } catch (err) {
+            console.error('Chat request failed:', err);
+            messages = [...messages, { role: 'assistant', text: 'Verbindung fehlgeschlagen. Bitte versuch es später erneut.' }];
+        } finally {
+            await tick();
+            scrollToLastMessage();
+            loading = false;
+        }
     }
 </script>
 
@@ -62,7 +78,11 @@
     <button id="close-button" onclick={toggleChat}>X</button>
    {#each messages as msg}
         <div class="message {msg.role}">
-            {@html marked(msg.text)}
+            {#if msg.role === 'user'}
+                {msg.text}
+            {:else}
+                {@html marked(msg.text)}
+            {/if}
         </div>
     {/each}
 
