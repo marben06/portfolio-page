@@ -5,7 +5,7 @@
             "previewImage": "/images/projects-preview/prev_portfolio.webp",
             "article": {
                 "title": "Chat Widget: LLM gestützter Chat",
-                "content": "<p>KI gestütztes Chat-Widget zur Unterstützung bei der Entdeckung der Projekte auf dieser Seite</p><p>Über ein Fast API Backend wird die userseitige Anfrage an einen Hugging Face Interference Endpunkt geschickt.</p><p> Das Modell ist in einer json Struktur die das Portfolio beschreibt gegroundet.</p>"
+                "content": "<p>KI gestütztes Chat-Widget zur Unterstützung bei der Entdeckung der Projekte auf dieser Seite</p><p>Über ein Fast API Backend wird die userseitige Anfrage an einen Hugging Face Inference Endpunkt geschickt.</p><p> Das Modell ist in einer json Struktur die das Portfolio beschreibt gegroundet.</p>"
             },
             "components": ["article", "projectUrls", "techStack"],
             "data": {
@@ -15,7 +15,7 @@
                 "github": false,
                 
                 "stack": ["Svelte", "Python", "FastAPI", "Hugging Face"],
-                "artificialIntelligenceUsed": "Yes. It uses the Hugging Face Interference API to process user questions."
+                "artificialIntelligenceUsed": "Yes. It uses the Hugging Face Inference API to process user questions."
             }
         },
         
