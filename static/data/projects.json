@@ -2,7 +2,7 @@
         {
             "slug": "portfolio-chat-Widget",
             "name": "Chat Widget: LLM gestützter Chat",  
-            "previewImage": "/images/projects-preview/prev_portfolio.webp",
+            "previewImage": "/images/projects-preview/prev_chatWidget.png",
             "article": {
                 "title": "Chat Widget: LLM gestützter Chat",
                 "content": "<p>KI gestütztes Chat-Widget zur Unterstützung bei der Entdeckung der Projekte auf dieser Seite</p><p>Über ein Fast API Backend wird die userseitige Anfrage an einen Hugging Face Inference Endpunkt geschickt.</p><p> Das Modell ist in einer json Struktur die das Portfolio beschreibt gegroundet.</p>"
